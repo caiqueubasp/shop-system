@@ -1,0 +1,28 @@
+package products;
+
+public class Food extends Product {
+	
+	private boolean hasFatTax;
+
+	public Food(String name, double price, double discount, double tax, int code, boolean hasFatTax) {
+		super(name, price, discount, tax, code);
+		this.hasFatTax = hasFatTax;
+	}
+
+	public boolean isHasFatTax() {
+		return hasFatTax;
+	}
+
+	public void setHasFatTax(boolean hasFatTax) {
+		this.hasFatTax = hasFatTax;
+	}
+	
+	@Override
+	public double getRealPrice() {
+		if(this.hasFatTax) {
+			return super.getRealPrice() + (super.getRealPrice() * 0.20);
+		}
+		return super.getRealPrice();
+	}
+
+}

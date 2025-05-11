@@ -1,0 +1,62 @@
+
+package shopping;
+
+import products.Beverage;
+import products.Food;
+import products.Product;
+
+/**
+ *
+ * @author kheal
+ */
+public class Supermarket {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+       
+        ShoppingTrolley myBag = new ShoppingTrolley(); //this is myBag. I can buy things to put in it
+       
+        /*
+          YOU MUST COMPLETE THIS CODE - REMEMBER TO COMMENT WHAT YOU HAVE DONE AND TRY TO MODULARISE YOUR CODE (i.e. create your own methods)
+        */
+   
+        Product p1 = new Product("Desk", 100.19, 12.99);
+        Beverage bv1 = new Beverage("Water", 1.10, 0, false);
+        Beverage bv2 = new Beverage("Genova Beer", 2.56, 0, true);
+        Food f1 = new Food("Pasta", 1.15, 0, false);
+        Food f2 = new Food("Chocolate", 3.55, 0, true);
+        
+        
+//        f2.setTax(13.45);
+//        System.out.println(f2.getTax());
+//        System.out.println(f2.getDiscount());
+//        System.out.println(f2.getPrice());
+//        System.out.println(f2.getRealPrice());
+
+
+        myBag.buyItem(p1);
+        myBag.buyItem(bv1);
+        myBag.buyItem(bv2);
+        myBag.buyItem(f1);
+        System.out.println( myBag.emptyTrolley());
+        
+        
+        System.out.println("Menu:");
+      System.out.println(p1.toString());
+      System.out.println(bv1.toString());
+      System.out.println(bv2.toString());
+      System.out.println(f1.toString());
+      System.out.println(f2.toString());
+      System.out.print("Escolha uma opção: ");
+      
+      String opcao = scanner.nextLine();
+
+      
+      
+
+    
+    }
+   
+}

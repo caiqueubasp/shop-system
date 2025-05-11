@@ -1,0 +1,34 @@
+
+package shopping;
+
+import products.Beverage;
+import products.Product;
+
+/**
+ *
+ * @author kheal
+ */
+public class Supermarket {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+       
+        ShoppingTrolley myBag = new ShoppingTrolley(); //this is myBag. I can buy things to put in it
+       
+        /*
+          YOU MUST COMPLETE THIS CODE - REMEMBER TO COMMENT WHAT YOU HAVE DONE AND TRY TO MODULARISE YOUR CODE (i.e. create your own methods)
+        */
+   
+        Product p1 = new Product("Desk", 100.19, 12.99, 20.45, 1234);
+        Beverage bv1 = new Beverage("Water", 1.10, 0, 0, 4321, false);
+        Beverage bv2 = new Beverage("Genova Beer", 2.56, 0, 0.45, 567, true);
+        
+        System.out.println(p1.toString());
+        System.out.println(b1.toString());
+        System.out.println(b2.toString());
+    
+    }
+   
+}

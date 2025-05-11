@@ -1,0 +1,119 @@
+
+package shopping;
+
+import java.util.Scanner;
+
+import products.Beverage;
+import products.Food;
+import products.OtherProduct;
+import products.Product;
+
+/**
+ *
+ * @author kheal
+ */
+public class Supermarket {
+
+	/**
+     * @param args the command line arguments
+     */
+	
+	private static double totalShoppingPrice;
+	
+    public static void main(String[] args) {
+       
+        ShoppingTrolley myBag = new ShoppingTrolley(); //this is myBag. I can buy things to put in it
+       
+        /*
+          YOU MUST COMPLETE THIS CODE - REMEMBER TO COMMENT WHAT YOU HAVE DONE AND TRY TO MODULARISE YOUR CODE (i.e. create your own methods)
+        */
+   
+        Beverage bv1 = new Beverage("Water", 1.10, 0, false);
+        Beverage bv2 = new Beverage("Genova Beer", 2.56, 0, true);
+        Food f1 = new Food("Pasta", 1.15, 0, false);
+        Food f2 = new Food("Chocolate", 3.55, 0, true);
+        OtherProduct p1 = new OtherProduct("Desk", 100.19, 12.99, "medium size table");
+        OtherProduct p2 = new OtherProduct("Liquid Soap", 100.19, 12.99, "Green liquid soap - 500 ml");
+
+        
+       
+      
+      Scanner scanner = new Scanner(System.in);
+      boolean shopping = true;
+      
+      
+  
+
+      while (shopping) {
+        System.out.println("Menu:");
+        System.out.println("1. " + bv1.toString());
+        System.out.println("2. " + bv2.toString());
+        System.out.println("3. " + f1.toString());
+        System.out.println("4. " + f2.toString());
+        System.out.println("5. " + p1.toString());
+        System.out.println("6. " + p2.toString());
+        System.out.println("7. Proceed to Checkout");
+        System.out.print("Choose an option: ");
+
+        int option = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
+
+        switch (option) {
+          case 1:
+              addItemToTrolley(scanner, myBag, bv1);
+            break;
+          case 2:
+        	  addItemToTrolley(scanner, myBag, bv2);
+            break;
+          case 3:
+        	  addItemToTrolley(scanner, myBag, f1);
+            break;
+          case 4:
+        	  addItemToTrolley(scanner, myBag, f2);
+            break;
+          case 5:
+        	  addItemToTrolley(scanner, myBag, p1);
+            break;
+          case 6:
+        	  addItemToTrolley(scanner, myBag, p2);
+            break;
+          case 7:
+            shopping = false;
+            break;
+          default:
+            System.out.println("Invalid option. Please try again.");
+        }
+      }
+
+      System.out.println("Checkout:");
+      System.out.println(myBag.emptyTrolley());
+      System.out.println("Total amount due: $" + getTotalShoppingPrice());
+
+      scanner.close();
+      
+    
+    }
+    
+    private static void addItemToTrolley(Scanner scanner, ShoppingTrolley trolley, Product product) {
+	    System.out.print("Enter quantity for " + product.getName() + ": ");
+	    int quantity = scanner.nextInt();
+	    scanner.nextLine(); // Consume newline
+
+	    for (int i = 0; i < quantity; i++) {
+	        trolley.buyItem(product);
+	        setTotalShoppingPrice(getTotalShoppingPrice() + product.getPrice());
+	    }
+	    System.out.println(quantity + " " + product.getName() + "(s) added to your trolley.");
+	}
+
+	public static double getTotalShoppingPrice() {
+		return totalShoppingPrice;
+	}
+
+	public static void setTotalShoppingPrice(double totalShoppingPrice) {
+		Supermarket.totalShoppingPrice = totalShoppingPrice;
+	}
+    
+  
+
+}

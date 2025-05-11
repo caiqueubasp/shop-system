@@ -1,0 +1,40 @@
+package products;
+
+public class Beverage extends Product {
+	
+	private boolean isAlcoholic;
+	
+	
+	
+	
+	public Beverage(boolean isAlcoholic) {
+		super();
+		this.isAlcoholic = isAlcoholic;
+	}
+
+
+
+
+	public boolean isAlcoholic() {
+		return isAlcoholic;
+	}
+
+
+
+
+	public void setAlcoholic(boolean isAlcoholic) {
+		this.isAlcoholic = isAlcoholic;
+	}
+
+
+
+	// Override the getRealPrice method to include alcoholic tax
+	@Override
+	public double getRealPrice() {
+		if(this.isAlcoholic) {
+			return  super.getRealPrice() + (super.getRealPrice() * 0.10);
+		}
+		return super.getRealPrice();
+	}
+
+}

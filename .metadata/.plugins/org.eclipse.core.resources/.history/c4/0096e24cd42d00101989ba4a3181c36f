@@ -1,0 +1,100 @@
+package products;
+
+public class Product {
+	
+	private String name;
+	private double price;
+	private double discount;
+	private double tax;
+	private int code;
+	
+	
+	public Product() {
+
+	}
+
+
+	public Product(String name, double price, double discount, double tax, int code) {
+		this.name = name;
+		this.price = price;
+		this.discount = discount;
+		this.tax = tax;
+		this.code = code;
+	}
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+	public double getPrice() {
+		return price;
+	}
+
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+
+	public double getDiscount() {
+		return discount;
+	}
+
+
+	public void setDiscount(double discount) {
+		this.discount = discount;
+	}
+
+
+	public double getTax() {
+		return tax;
+	}
+
+
+	public void setTax(double tax) {
+		this.tax = tax;
+	}
+
+
+	public int getCode() {
+		return code;
+	}
+
+
+	public void setCode(int code) {
+		this.code = code;
+	}
+	
+	
+	// method price with discount and including taxes
+	public double getRealPrice() {
+		return (this.getPrice() - this.getDiscount()) + this.getTax();
+	}
+	private String name;
+	private double price;
+	private double discount;
+	private double tax;
+	private int code;
+	
+	
+	// Method to override toString and show better information of class
+	@Override
+	public String toString() {
+		return 
+			"Name: " + this.getName() + " " +
+			"Code: " + this.getCode() + " " +
+			"Discount: " + this.getDiscount() + " " +
+			"Tax: " + this.getTax() + " " +
+			"Price: " + this.getPrice() + " " +
+			"Real Price: " + this.getRealPrice();
+	}
+	
+
+}
