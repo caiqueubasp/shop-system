@@ -22,7 +22,6 @@ public class OtherProduct extends Product {
 		public String toString() {
 			return 
 				"Name: " + this.getName() + " - " +
-				"Description: " + this.getDescription() + " - " +
 				"Price: " + String.format("%.2f", this.getPrice())  + " - " +
 				"Real Price: " + String.format("%.2f", this.getRealPrice());
 		}

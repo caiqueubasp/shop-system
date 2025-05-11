@@ -16,15 +16,5 @@ public class OtherProduct extends Product {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
-	// Method to override toString and show description value
-		@Override
-		public String toString() {
-			return 
-				"Name: " + this.getName() + " - " +
-				"Description: " + this.getDescription() + " - " +
-				"Price: " + String.format("%.2f", this.getPrice())  + " - " +
-				"Real Price: " + String.format("%.2f", this.getRealPrice());
-		}
 
 }

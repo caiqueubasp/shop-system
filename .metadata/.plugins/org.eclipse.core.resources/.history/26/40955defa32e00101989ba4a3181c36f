@@ -33,7 +33,7 @@ public class Supermarket {
         Food f1 = new Food("Pasta", 1.15, 0, false);
         Food f2 = new Food("Chocolate", 3.55, 0, true);
         OtherProduct p1 = new OtherProduct("Desk", 100.19, 12.99, "medium size table");
-        OtherProduct p2 = new OtherProduct("Liquid Soap", 5.89, 0.50, "Green liquid soap - 500 ml");
+        OtherProduct p2 = new OtherProduct("Liquid Soap", 100.19, 12.99, "Green liquid soap - 500 ml");
 
         
        
@@ -90,7 +90,7 @@ public class Supermarket {
       System.out.println();
       System.out.println("Checkout:");
       System.out.println(myBag.emptyTrolley());
-      System.out.println("Total amount due: $" + String.format("%.2f", getTotalShoppingPrice()));
+      System.out.println("Total amount due: $" + getTotalShoppingPrice());
 
       scanner.close();
       
@@ -100,11 +100,11 @@ public class Supermarket {
     private static void addItemToTrolley(Scanner scanner, ShoppingTrolley trolley, Product product) {
 	    System.out.print("Enter quantity for " + product.getName() + ": ");
 	    int quantity = scanner.nextInt();
-	    scanner.nextLine(); 
+	    scanner.nextLine(); // Consume newline
 
 	    for (int i = 0; i < quantity; i++) {
 	        trolley.buyItem(product);
-	        setTotalShoppingPrice(getTotalShoppingPrice() + product.getRealPrice());
+	        setTotalShoppingPrice(getTotalShoppingPrice() + product.getPrice());
 	    }
 	    System.out.println(quantity + " " + product.getName() + "(s) added to your trolley.");
 	}
@@ -116,5 +116,7 @@ public class Supermarket {
 	public static void setTotalShoppingPrice(double totalShoppingPrice) {
 		Supermarket.totalShoppingPrice = totalShoppingPrice;
 	}
+    
+  
 
 }

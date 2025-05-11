@@ -70,6 +70,8 @@ public class Product {
 	public String toString() {
 		return 
 			"Name: " + this.getName() + " - " +
+			"Discount: " + String.format("%.2f", this.getDiscount()) + " - " +
+			"Tax: " + String.format("%.2f", this.getTax()) + " - " +
 			"Price: " + String.format("%.2f", this.getPrice())  + " - " +
 			"Real Price: " + String.format("%.2f", this.getRealPrice());
 	}
